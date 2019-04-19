@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tbl_Doctors">
+    <Key>
+      <PropertyRef Name="docid" />
+    </Key>
+    <Property Name="docid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="docname" Type="nvarchar" MaxLength="50" />
+    <Property Name="docsurname" Type="varchar" MaxLength="10" />
+    <Property Name="docbranch" Type="nvarchar" MaxLength="50" />
+    <Property Name="doctc" Type="char" MaxLength="11" />
+    <Property Name="docpassword" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Tbl_Doctors_Tbl_Doctors">
+    <End Role="Tbl_Doctors" Type="Self.Tbl_Doctors" Multiplicity="1" />
+    <End Role="Tbl_Doctors1" Type="Self.Tbl_Doctors" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Doctors">
+        <PropertyRef Name="docid" />
+      </Principal>
+      <Dependent Role="Tbl_Doctors1">
+        <PropertyRef Name="docid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HospitalProjectModelStoreContainer">
+    <EntitySet Name="Tbl_Doctors" EntityType="Self.Tbl_Doctors" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tbl_Doctors_Tbl_Doctors" Association="Self.FK_Tbl_Doctors_Tbl_Doctors">
+      <End Role="Tbl_Doctors" EntitySet="Tbl_Doctors" />
+      <End Role="Tbl_Doctors1" EntitySet="Tbl_Doctors" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

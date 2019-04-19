@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HospitalProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_Doctors">
+          <Key>
+            <PropertyRef Name="docid" />
+          </Key>
+          <Property Name="docid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="docname" Type="nvarchar" MaxLength="50" />
+          <Property Name="docsurname" Type="varchar" MaxLength="10" />
+          <Property Name="docbranch" Type="nvarchar" MaxLength="50" />
+          <Property Name="doctc" Type="char" MaxLength="11" />
+          <Property Name="docpassword" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Tbl_Doctors_Tbl_Doctors">
+          <End Role="Tbl_Doctors" Type="Self.Tbl_Doctors" Multiplicity="1" />
+          <End Role="Tbl_Doctors1" Type="Self.Tbl_Doctors" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Doctors">
+              <PropertyRef Name="docid" />
+            </Principal>
+            <Dependent Role="Tbl_Doctors1">
+              <PropertyRef Name="docid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HospitalProjectModelStoreContainer">
+          <EntitySet Name="Tbl_Doctors" EntityType="Self.Tbl_Doctors" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Tbl_Doctors_Tbl_Doctors" Association="Self.FK_Tbl_Doctors_Tbl_Doctors">
+            <End Role="Tbl_Doctors" EntitySet="Tbl_Doctors" />
+            <End Role="Tbl_Doctors1" EntitySet="Tbl_Doctors" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HospitalProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Doctors">
+          <Key>
+            <PropertyRef Name="docid" />
+          </Key>
+          <Property Name="docid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="docname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="docsurname" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="docbranch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="doctc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="docpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tbl_Doctors1" Relationship="Self.FK_Tbl_Doctors_Tbl_Doctors" FromRole="Tbl_Doctors" ToRole="Tbl_Doctors1" />
+          <NavigationProperty Name="Tbl_Doctors2" Relationship="Self.FK_Tbl_Doctors_Tbl_Doctors" FromRole="Tbl_Doctors1" ToRole="Tbl_Doctors" />
+        </EntityType>
+        <Association Name="FK_Tbl_Doctors_Tbl_Doctors">
+          <End Role="Tbl_Doctors" Type="Self.Tbl_Doctors" Multiplicity="1" />
+          <End Role="Tbl_Doctors1" Type="Self.Tbl_Doctors" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Doctors">
+              <PropertyRef Name="docid" />
+            </Principal>
+            <Dependent Role="Tbl_Doctors1">
+              <PropertyRef Name="docid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HospitalProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Doctors" EntityType="Self.Tbl_Doctors" />
+          <AssociationSet Name="FK_Tbl_Doctors_Tbl_Doctors" Association="Self.FK_Tbl_Doctors_Tbl_Doctors">
+            <End Role="Tbl_Doctors" EntitySet="Tbl_Doctors" />
+            <End Role="Tbl_Doctors1" EntitySet="Tbl_Doctors" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HospitalProjectModelStoreContainer" CdmEntityContainer="HospitalProjectEntities">
+          <EntitySetMapping Name="Tbl_Doctors">
+            <EntityTypeMapping TypeName="HospitalProjectModel.Tbl_Doctors">
+              <MappingFragment StoreEntitySet="Tbl_Doctors">
+                <ScalarProperty Name="docid" ColumnName="docid" />
+                <ScalarProperty Name="docname" ColumnName="docname" />
+                <ScalarProperty Name="docsurname" ColumnName="docsurname" />
+                <ScalarProperty Name="docbranch" ColumnName="docbranch" />
+                <ScalarProperty Name="doctc" ColumnName="doctc" />
+                <ScalarProperty Name="docpassword" ColumnName="docpassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

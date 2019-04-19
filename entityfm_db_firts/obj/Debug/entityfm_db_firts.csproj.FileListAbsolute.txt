@@ -1,0 +1,12 @@
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\obj\Debug\entityfm_db_firts.csprojAssemblyReference.cache
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\obj\Debug\entityfm_db_firts.csproj.CoreCompileInputs.cache
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\bin\Debug\entityfm_db_firts.exe.config
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\bin\Debug\entityfm_db_firts.exe
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\bin\Debug\entityfm_db_firts.pdb
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\bin\Debug\EntityFramework.dll
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\bin\Debug\EntityFramework.xml
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\obj\Debug\entityfm_db_firts.csproj.CopyComplete
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\obj\Debug\entityfm_db_firts.exe
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\obj\Debug\entityfm_db_firts.pdb

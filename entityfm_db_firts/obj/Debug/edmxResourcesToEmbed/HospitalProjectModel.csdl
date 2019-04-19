@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_Doctors">
+    <Key>
+      <PropertyRef Name="docid" />
+    </Key>
+    <Property Name="docid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="docname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="docsurname" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="docbranch" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="doctc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="docpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tbl_Doctors1" Relationship="Self.FK_Tbl_Doctors_Tbl_Doctors" FromRole="Tbl_Doctors" ToRole="Tbl_Doctors1" />
+    <NavigationProperty Name="Tbl_Doctors2" Relationship="Self.FK_Tbl_Doctors_Tbl_Doctors" FromRole="Tbl_Doctors1" ToRole="Tbl_Doctors" />
+  </EntityType>
+  <Association Name="FK_Tbl_Doctors_Tbl_Doctors">
+    <End Role="Tbl_Doctors" Type="Self.Tbl_Doctors" Multiplicity="1" />
+    <End Role="Tbl_Doctors1" Type="Self.Tbl_Doctors" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Doctors">
+        <PropertyRef Name="docid" />
+      </Principal>
+      <Dependent Role="Tbl_Doctors1">
+        <PropertyRef Name="docid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HospitalProjectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_Doctors" EntityType="Self.Tbl_Doctors" />
+    <AssociationSet Name="FK_Tbl_Doctors_Tbl_Doctors" Association="Self.FK_Tbl_Doctors_Tbl_Doctors">
+      <End Role="Tbl_Doctors" EntitySet="Tbl_Doctors" />
+      <End Role="Tbl_Doctors1" EntitySet="Tbl_Doctors" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

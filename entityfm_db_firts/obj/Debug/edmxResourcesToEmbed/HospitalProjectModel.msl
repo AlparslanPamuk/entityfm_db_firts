@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HospitalProjectModelStoreContainer" CdmEntityContainer="HospitalProjectEntities">
+    <EntitySetMapping Name="Tbl_Doctors">
+      <EntityTypeMapping TypeName="HospitalProjectModel.Tbl_Doctors">
+        <MappingFragment StoreEntitySet="Tbl_Doctors">
+          <ScalarProperty Name="docid" ColumnName="docid" />
+          <ScalarProperty Name="docname" ColumnName="docname" />
+          <ScalarProperty Name="docsurname" ColumnName="docsurname" />
+          <ScalarProperty Name="docbranch" ColumnName="docbranch" />
+          <ScalarProperty Name="doctc" ColumnName="doctc" />
+          <ScalarProperty Name="docpassword" ColumnName="docpassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
