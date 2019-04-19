@@ -1,0 +1,32 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+
+public class Notes
+{
+<#for(int i=1; i<101; i++)
+{#>
+public int Note<#=i#> {get; set;}
+<#}#>
+}
+
+<#string[] student={"Id","Name","Surname"};#>
+public class Student
+{
+<#foreach(var item in student)
+{#>
+public string <#=item#> {get; set;}
+<#}#>
+}
+
+<#string[] student1=System.IO.File.ReadAllLines("C:\\Users\\alp_g\\OneDrive\\Desktop\\C2\\entityfm_db_firts\\student.txt");#> <#//Path is changeable.#>
+public class Student1
+{
+<#foreach(var item in student1)
+{#>
+public string <#=item#> {get; set;}
+<#}#>
+}

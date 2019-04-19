@@ -26,5 +26,7 @@ namespace entityfm_db_firts
         }
     
         public virtual DbSet<Tbl_Doctors> Tbl_Doctors { get; set; }
+        public virtual DbSet<Tbl_Appointments> Tbl_Appointments { get; set; }
+        public virtual DbSet<Tbl_Patients> Tbl_Patients { get; set; }
     }
 }

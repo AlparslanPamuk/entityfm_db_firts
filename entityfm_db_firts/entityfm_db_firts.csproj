@@ -67,9 +67,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HospitalProjectModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MustafaAlparslanPamuk.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MustafaAlparslanPamuk.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tbl_Appointments.cs">
+      <DependentUpon>HospitalProjectModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tbl_Doctors.cs">
+      <DependentUpon>HospitalProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_Patients.cs">
       <DependentUpon>HospitalProjectModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -94,6 +105,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HospitalProjectModel.edmx</DependentUpon>
       <LastGenOutput>HospitalProjectModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="MustafaAlparslanPamuk.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MustafaAlparslanPamuk.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
