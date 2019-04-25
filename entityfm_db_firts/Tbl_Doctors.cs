@@ -14,12 +14,6 @@ namespace entityfm_db_firts
     
     public partial class Tbl_Doctors
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tbl_Doctors()
-        {
-            this.Tbl_Appointments = new HashSet<Tbl_Appointments>();
-        }
-    
         public int docid { get; set; }
         public string docname { get; set; }
         public string docsurname { get; set; }
@@ -29,7 +23,5 @@ namespace entityfm_db_firts
     
         public virtual Tbl_Doctors Tbl_Doctors1 { get; set; }
         public virtual Tbl_Doctors Tbl_Doctors2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tbl_Appointments> Tbl_Appointments { get; set; }
     }
 }

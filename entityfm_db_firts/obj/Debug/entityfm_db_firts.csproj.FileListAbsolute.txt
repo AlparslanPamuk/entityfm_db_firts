@@ -10,3 +10,5 @@ C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\bin\Debug
 C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\obj\Debug\entityfm_db_firts.csproj.CopyComplete
 C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\obj\Debug\entityfm_db_firts.exe
 C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\obj\Debug\entityfm_db_firts.pdb
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\bin\Debug\ConsoleTables.dll
+C:\Users\alp_g\OneDrive\Desktop\C2\entityfm_db_firts\entityfm_db_firts\bin\Debug\ConsoleTables.pdb

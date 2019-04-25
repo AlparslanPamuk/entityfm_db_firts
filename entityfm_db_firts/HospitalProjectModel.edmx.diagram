@@ -4,12 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="58df9902b173468badc1dd5e20ee74a2" Name="Diagram1" ZoomLevel="108" DisplayType="true">
-        <EntityTypeShape EntityType="HospitalProjectModel.Tbl_Doctors" Width="1.875" PointX="2.25" PointY="0.5" IsExpanded="true" />
+      <Diagram DiagramId="58df9902b173468badc1dd5e20ee74a2" Name="Diagram1" ZoomLevel="102" DisplayType="true">
+        <EntityTypeShape EntityType="HospitalProjectModel.Tbl_Doctors" Width="7.375" PointX="0.75" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="HospitalProjectModel.FK_Tbl_Doctors_Tbl_Doctors" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="HospitalProjectModel.Tbl_Appointments" Width="2.875" PointX="5.25" PointY="0.5" />
-        <EntityTypeShape EntityType="HospitalProjectModel.Tbl_Patients" Width="2.125" PointX="3.75" PointY="3.625" />
-        <AssociationConnector Association="HospitalProjectModel.FK_Tbl_Appointments_Tbl_Doctors" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
