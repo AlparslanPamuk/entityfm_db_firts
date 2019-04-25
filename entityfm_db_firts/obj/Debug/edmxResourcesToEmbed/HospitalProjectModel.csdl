@@ -12,6 +12,7 @@
     <Property Name="docpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Tbl_Doctors1" Relationship="Self.FK_Tbl_Doctors_Tbl_Doctors" FromRole="Tbl_Doctors" ToRole="Tbl_Doctors1" />
     <NavigationProperty Name="Tbl_Doctors2" Relationship="Self.FK_Tbl_Doctors_Tbl_Doctors" FromRole="Tbl_Doctors1" ToRole="Tbl_Doctors" />
+    <NavigationProperty Name="Tbl_Appointments" Relationship="HospitalProjectModel.FK_Tbl_Appointments_Tbl_Doctors" FromRole="Tbl_Doctors" ToRole="Tbl_Appointments" />
   </EntityType>
   <Association Name="FK_Tbl_Doctors_Tbl_Doctors">
     <End Role="Tbl_Doctors" Type="Self.Tbl_Doctors" Multiplicity="1" />
@@ -31,5 +32,36 @@
       <End Role="Tbl_Doctors" EntitySet="Tbl_Doctors" />
       <End Role="Tbl_Doctors1" EntitySet="Tbl_Doctors" />
     </AssociationSet>
+    <EntitySet Name="Tbl_Appointments" EntityType="HospitalProjectModel.Tbl_Appointments" />
+    <AssociationSet Name="FK_Tbl_Appointments_Tbl_Doctors" Association="HospitalProjectModel.FK_Tbl_Appointments_Tbl_Doctors">
+      <End Role="Tbl_Doctors" EntitySet="Tbl_Doctors" />
+      <End Role="Tbl_Appointments" EntitySet="Tbl_Appointments" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Tbl_Appointments">
+    <Key>
+      <PropertyRef Name="appointmentid" />
+    </Key>
+    <Property Name="appointmentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="appointmentdate" Type="DateTime" Precision="3" />
+    <Property Name="appointmenttime" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="appointmentbranch" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="appointmentdoctor" Type="Int32" Nullable="false" />
+    <Property Name="appointmentstate" Type="Boolean" />
+    <Property Name="patienttc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="patientcomplaint" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tbl_Doctors" Relationship="HospitalProjectModel.FK_Tbl_Appointments_Tbl_Doctors" FromRole="Tbl_Appointments" ToRole="Tbl_Doctors" />
+  </EntityType>
+  <Association Name="FK_Tbl_Appointments_Tbl_Doctors">
+    <End Type="HospitalProjectModel.Tbl_Doctors" Role="Tbl_Doctors" Multiplicity="1" />
+    <End Type="HospitalProjectModel.Tbl_Appointments" Role="Tbl_Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Doctors">
+        <PropertyRef Name="docid" />
+      </Principal>
+      <Dependent Role="Tbl_Appointments">
+        <PropertyRef Name="appointmentdoctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -1,5 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="HospitalProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tbl_Appointments">
+    <Key>
+      <PropertyRef Name="appointmentid" />
+    </Key>
+    <Property Name="appointmentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="appointmentdate" Type="datetime" />
+    <Property Name="appointmenttime" Type="varchar" MaxLength="5" />
+    <Property Name="appointmentbranch" Type="varchar" MaxLength="30" />
+    <Property Name="appointmentdoctor" Type="int" Nullable="false" />
+    <Property Name="appointmentstate" Type="bit" />
+    <Property Name="patienttc" Type="char" MaxLength="11" />
+    <Property Name="patientcomplaint" Type="varchar" MaxLength="250" />
+  </EntityType>
   <EntityType Name="Tbl_Doctors">
     <Key>
       <PropertyRef Name="docid" />
@@ -11,6 +24,18 @@
     <Property Name="doctc" Type="char" MaxLength="11" />
     <Property Name="docpassword" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <Association Name="FK_Tbl_Appointments_Tbl_Doctors">
+    <End Role="Tbl_Doctors" Type="Self.Tbl_Doctors" Multiplicity="1" />
+    <End Role="Tbl_Appointments" Type="Self.Tbl_Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Doctors">
+        <PropertyRef Name="docid" />
+      </Principal>
+      <Dependent Role="Tbl_Appointments">
+        <PropertyRef Name="appointmentdoctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Tbl_Doctors_Tbl_Doctors">
     <End Role="Tbl_Doctors" Type="Self.Tbl_Doctors" Multiplicity="1" />
     <End Role="Tbl_Doctors1" Type="Self.Tbl_Doctors" Multiplicity="0..1" />
@@ -24,7 +49,12 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="HospitalProjectModelStoreContainer">
+    <EntitySet Name="Tbl_Appointments" EntityType="Self.Tbl_Appointments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_Doctors" EntityType="Self.Tbl_Doctors" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tbl_Appointments_Tbl_Doctors" Association="Self.FK_Tbl_Appointments_Tbl_Doctors">
+      <End Role="Tbl_Doctors" EntitySet="Tbl_Doctors" />
+      <End Role="Tbl_Appointments" EntitySet="Tbl_Appointments" />
+    </AssociationSet>
     <AssociationSet Name="FK_Tbl_Doctors_Tbl_Doctors" Association="Self.FK_Tbl_Doctors_Tbl_Doctors">
       <End Role="Tbl_Doctors" EntitySet="Tbl_Doctors" />
       <End Role="Tbl_Doctors1" EntitySet="Tbl_Doctors" />

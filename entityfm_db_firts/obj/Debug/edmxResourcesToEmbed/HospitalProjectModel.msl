@@ -13,5 +13,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Appointments">
+      <EntityTypeMapping TypeName="HospitalProjectModel.Tbl_Appointments">
+        <MappingFragment StoreEntitySet="Tbl_Appointments">
+          <ScalarProperty Name="patientcomplaint" ColumnName="patientcomplaint" />
+          <ScalarProperty Name="patienttc" ColumnName="patienttc" />
+          <ScalarProperty Name="appointmentstate" ColumnName="appointmentstate" />
+          <ScalarProperty Name="appointmentdoctor" ColumnName="appointmentdoctor" />
+          <ScalarProperty Name="appointmentbranch" ColumnName="appointmentbranch" />
+          <ScalarProperty Name="appointmenttime" ColumnName="appointmenttime" />
+          <ScalarProperty Name="appointmentdate" ColumnName="appointmentdate" />
+          <ScalarProperty Name="appointmentid" ColumnName="appointmentid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -77,6 +77,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tbl_Appointments.cs">
+      <DependentUpon>HospitalProjectModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tbl_Doctors.cs">
       <DependentUpon>HospitalProjectModel.tt</DependentUpon>
     </Compile>

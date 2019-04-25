@@ -146,9 +146,126 @@ namespace entityfm_db_firts
 
             //-----------------Select * from tbl where Name like '%fg%' ----------------------//
 
-            var result = db.Tbl_Doctors.Where(x => x.docname.EndsWith("fg"));
-            ConsoleTable.From(result).Write();                                                       //Ends with "fg".
-            Console.ReadLine();
+            //var result = db.Tbl_Doctors.Where(x => x.docname.EndsWith("fg"));
+            //ConsoleTable.From(result).Write();                                                       //Ends with "fg".
+            //Console.ReadLine();
+
+
+            //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   
+            //==//   //==//   //==//   //==//   //==//   JOIN AND GROUP BY QUERIES //==//   //==//   //==//   //==//   //==//   //==//   
+            //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//   //==//      
+
+            //---- select name, name  from tbl join  tbl on tbl.column=tbl.column ------------------------------------//
+
+            //var result = from d in db.Tbl_Doctors
+            //             join a in db.Tbl_Appointments
+            //             on d.docid equals a.appointmentid
+            //             select new
+            //             {
+            //                 d.docname,
+            //                 a.patientcomplaint
+            //             };
+            //ConsoleTable.From(result).Write();
+            //Console.ReadLine();
+
+            //---- select name, name, name from tbl join tbl on tbl.column=tbl.column Order By column desc -----------//
+
+            //var result = from d in db.Tbl_Doctors
+            //             join a in db.Tbl_Appointments
+            //             on d.docid equals a.appointmentid
+            //             orderby d.docpassword descending
+            //             select new
+            //             {
+            //                 d.docname,
+            //                 a.patientcomplaint,
+            //                 d.docpassword
+            //             };
+            //ConsoleTable.From(result).Write();
+            //Console.ReadLine();
+
+            //---- select id, count(*) as smth from tbl Group By ID ---------------------------------------------------//
+
+            //var result = from d in db.Tbl_Doctors
+            //             group d by d.docid into g
+            //             select new
+            //             {
+            //                 g.Key,
+            //                 NumberOf = g.Count()
+            //             };
+            //ConsoleTable.From(result).Write();
+            //Console.ReadLine();
+
+            //---- select name, Count(*) as smth from tbl join tbl on  tbl.column=tbl.column Group By name -----------//
+
+            //var result = from d in db.Tbl_Doctors
+            //             join a in db.Tbl_Appointments
+            //             on d.docid equals a.appointmentid
+            //             group a by a.appointmentbranch into g
+            //             select new
+            //             {
+            //                 g.Key,
+            //                 NumberOfProducts = g.Count() 
+            //             };
+            //ConsoleTable.From(result).Write();
+            //Console.ReadLine();
+
+            //---- select categoryname,Count(*)  as  Number of Products, 
+            //---- sum(unitprice) as TotalPrice,
+            //---- max(unitprice) as MaxPrice,
+            //---- min(unitprice) as MinPrice
+            //---- from tbl join tbl on tbl.column=tbl.column Group By column -----------//-----------//-----------//-----------//
+
+            //var result = from p in db.Tbl_Doctors
+            //             join c in db.Tbl_Appointments
+            //             on p.docid equals c.appointmentid
+            //             group new { c, p } by new { c.appointmentbranch } into g
+            //             select new
+            //             {
+            //                 g.Key.appointmentbranch,
+            //                 NumberOfProducts = g.Count(),
+            //                 TotalPrice =g.Sum(x=>x.p.doctc),
+            //                 MaxPrice = g.Max(x=>x.p.doctc),
+            //                 MinPrice= g.Min(x=>x.p.doctc)
+
+            //             };
+
+            //ConsoleTable.From(result).Write();
+            //Console.ReadLine();
+
+            //---- select categoryname,Count(*)  as  Number of Products, 
+            //---- sum(unitprice) as TotalPrice,
+            //---- max(unitprice) as MaxPrice,
+            //---- min(unitprice) as MinPrice
+            //---- from tbl join tbl on tbl.column=tbl.column Group By column
+            //---- having sum(Unitprice)>300 -----------//-----------//-----------//-----------//-----------//-----------//-------//
+
+            //var result = (from p in db.Tbl_Doctors
+            //             join c in db.Tbl_Appointments
+            //             on p.docid equals c.appointmentid
+            //             group new { c, p } by new { c.appointmentbranch } into g
+            //             select new
+            //             {
+            //                 g.Key.appointmentbranch,
+            //                 NumberOfProducts = g.Count(),
+            //                 TotalPrice = g.Sum(x => x.p.doctc),
+            //                 MaxPrice = g.Max(x => x.p.doctc),
+            //                 MinPrice = g.Min(x => x.p.doctc)
+
+            //             }).Where(x=> x.TotalPrice>300);
+
+            //ConsoleTable.From(result).Write();
+            //Console.ReadLine();
+
+
+            //------------------------------------------END OF JOİN QUERIES---------------------------------------\\
+
+
+
+
+
+
+
+
 
 
         }
