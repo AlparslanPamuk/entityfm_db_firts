@@ -9,6 +9,11 @@
         <AssociationConnector Association="HospitalProjectModel.FK_Tbl_Doctors_Tbl_Doctors" ManuallyRouted="false" />
         <EntityTypeShape EntityType="HospitalProjectModel.Tbl_Appointments" Width="2.5" PointX="6.125" PointY="0.5" />
         <AssociationConnector Association="HospitalProjectModel.FK_Tbl_Appointments_Tbl_Doctors" />
+        <EntityTypeShape EntityType="HospitalProjectModel.Tbl_Secretary" Width="2.375" PointX="9.375" PointY="2.125" />
+        <EntityTypeShape EntityType="HospitalProjectModel.Tbl_Announcements" Width="2.125" PointX="5.125" PointY="4.375" />
+        <EntityTypeShape EntityType="HospitalProjectModel.Tbl_Patients" Width="2.75" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="HospitalProjectModel.Tbl_branch" Width="2.75" PointX="4.375" PointY="6.75" />
+        <EntityTypeShape EntityType="HospitalProjectModel.Level" Width="2.375" PointX="8.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

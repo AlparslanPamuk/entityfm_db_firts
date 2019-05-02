@@ -26,7 +26,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="HospitalProjectEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="HospitalProjectEntities" annotation:LazyLoadingEnabled="false">
     <EntitySet Name="Tbl_Doctors" EntityType="Self.Tbl_Doctors" />
     <AssociationSet Name="FK_Tbl_Doctors_Tbl_Doctors" Association="Self.FK_Tbl_Doctors_Tbl_Doctors">
       <End Role="Tbl_Doctors" EntitySet="Tbl_Doctors" />
@@ -37,6 +37,11 @@
       <End Role="Tbl_Doctors" EntitySet="Tbl_Doctors" />
       <End Role="Tbl_Appointments" EntitySet="Tbl_Appointments" />
     </AssociationSet>
+    <EntitySet Name="Tbl_Secretary" EntityType="HospitalProjectModel.Tbl_Secretary" />
+    <EntitySet Name="Tbl_Announcements" EntityType="HospitalProjectModel.Tbl_Announcements" />
+    <EntitySet Name="Tbl_Patients" EntityType="HospitalProjectModel.Tbl_Patients" />
+    <EntitySet Name="Tbl_branch" EntityType="HospitalProjectModel.Tbl_branch" />
+    <EntitySet Name="Levels" EntityType="HospitalProjectModel.Level" />
   </EntityContainer>
   <EntityType Name="Tbl_Appointments">
     <Key>
@@ -64,4 +69,51 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EnumType Name="CourseLevel">
+    <Member Name="Beginner" Value="1" />
+    <Member Name="Intermediate" Value="2" />
+    <Member Name="Advanced" Value="3" />
+  </EnumType>
+  <EntityType Name="Tbl_Secretary">
+    <Key>
+      <PropertyRef Name="secid" />
+    </Key>
+    <Property Name="secid" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="secnamesurname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="sectc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="secpassword" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Announcements">
+    <Key>
+      <PropertyRef Name="announcementid" />
+    </Key>
+    <Property Name="announcementid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="announcement" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Patients">
+    <Key>
+      <PropertyRef Name="patientid" />
+    </Key>
+    <Property Name="patientid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="patientname" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="patientsurname" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="patienttc" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="patienttel" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="patientpassword" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="patientgender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tbl_branch">
+    <Key>
+      <PropertyRef Name="branchid" />
+    </Key>
+    <Property Name="branchid" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="branchname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int16" Nullable="false" />
+    <Property Name="Level1" Type="HospitalProjectModel.CourseLevel" Nullable="false" />
+  </EntityType>
 </Schema>

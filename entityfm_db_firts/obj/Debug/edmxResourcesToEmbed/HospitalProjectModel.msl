@@ -27,5 +27,52 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Secretary">
+      <EntityTypeMapping TypeName="HospitalProjectModel.Tbl_Secretary">
+        <MappingFragment StoreEntitySet="Tbl_Secretary">
+          <ScalarProperty Name="secpassword" ColumnName="secpassword" />
+          <ScalarProperty Name="sectc" ColumnName="sectc" />
+          <ScalarProperty Name="secnamesurname" ColumnName="secnamesurname" />
+          <ScalarProperty Name="secid" ColumnName="secid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Announcements">
+      <EntityTypeMapping TypeName="HospitalProjectModel.Tbl_Announcements">
+        <MappingFragment StoreEntitySet="Tbl_Announcements">
+          <ScalarProperty Name="announcement" ColumnName="announcement" />
+          <ScalarProperty Name="announcementid" ColumnName="announcementid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Patients">
+      <EntityTypeMapping TypeName="HospitalProjectModel.Tbl_Patients">
+        <MappingFragment StoreEntitySet="Tbl_Patients">
+          <ScalarProperty Name="patientgender" ColumnName="patientgender" />
+          <ScalarProperty Name="patientpassword" ColumnName="patientpassword" />
+          <ScalarProperty Name="patienttel" ColumnName="patienttel" />
+          <ScalarProperty Name="patienttc" ColumnName="patienttc" />
+          <ScalarProperty Name="patientsurname" ColumnName="patientsurname" />
+          <ScalarProperty Name="patientname" ColumnName="patientname" />
+          <ScalarProperty Name="patientid" ColumnName="patientid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_branch">
+      <EntityTypeMapping TypeName="HospitalProjectModel.Tbl_branch">
+        <MappingFragment StoreEntitySet="Tbl_branch">
+          <ScalarProperty Name="branchname" ColumnName="branchname" />
+          <ScalarProperty Name="branchid" ColumnName="branchid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Levels">
+      <EntityTypeMapping TypeName="HospitalProjectModel.Level">
+        <MappingFragment StoreEntitySet="Level">
+          <ScalarProperty Name="Level1" ColumnName="Level" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

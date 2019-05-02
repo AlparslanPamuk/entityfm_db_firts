@@ -18,6 +18,7 @@ namespace entityfm_db_firts
         public HospitalProjectEntities()
             : base("name=HospitalProjectEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -27,5 +28,10 @@ namespace entityfm_db_firts
     
         public virtual DbSet<Tbl_Doctors> Tbl_Doctors { get; set; }
         public virtual DbSet<Tbl_Appointments> Tbl_Appointments { get; set; }
+        public virtual DbSet<Tbl_Secretary> Tbl_Secretary { get; set; }
+        public virtual DbSet<Tbl_Announcements> Tbl_Announcements { get; set; }
+        public virtual DbSet<Tbl_Patients> Tbl_Patients { get; set; }
+        public virtual DbSet<Tbl_branch> Tbl_branch { get; set; }
+        public virtual DbSet<Level> Levels { get; set; }
     }
 }

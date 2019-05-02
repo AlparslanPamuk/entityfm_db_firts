@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="HospitalProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="smallint" Nullable="false" />
+    <Property Name="Level" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Announcements">
+    <Key>
+      <PropertyRef Name="announcementid" />
+    </Key>
+    <Property Name="announcementid" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="announcement" Type="varchar" MaxLength="200" />
+  </EntityType>
   <EntityType Name="Tbl_Appointments">
     <Key>
       <PropertyRef Name="appointmentid" />
@@ -13,6 +27,15 @@
     <Property Name="patienttc" Type="char" MaxLength="11" />
     <Property Name="patientcomplaint" Type="varchar" MaxLength="250" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HospitalProject.dbo.Tbl_branch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tbl_branch">
+    <Key>
+      <PropertyRef Name="branchid" />
+    </Key>
+    <Property Name="branchid" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="branchname" Type="varchar" MaxLength="30" />
+  </EntityType>
   <EntityType Name="Tbl_Doctors">
     <Key>
       <PropertyRef Name="docid" />
@@ -23,6 +46,27 @@
     <Property Name="docbranch" Type="nvarchar" MaxLength="50" />
     <Property Name="doctc" Type="char" MaxLength="11" />
     <Property Name="docpassword" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Patients">
+    <Key>
+      <PropertyRef Name="patientid" />
+    </Key>
+    <Property Name="patientid" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="patientname" Type="varchar" MaxLength="10" />
+    <Property Name="patientsurname" Type="varchar" MaxLength="10" />
+    <Property Name="patienttc" Type="char" MaxLength="11" />
+    <Property Name="patienttel" Type="varchar" MaxLength="15" />
+    <Property Name="patientpassword" Type="varchar" MaxLength="10" />
+    <Property Name="patientgender" Type="varchar" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="Tbl_Secretary">
+    <Key>
+      <PropertyRef Name="secid" />
+    </Key>
+    <Property Name="secid" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="secnamesurname" Type="varchar" MaxLength="30" />
+    <Property Name="sectc" Type="char" MaxLength="11" />
+    <Property Name="secpassword" Type="varchar" MaxLength="10" />
   </EntityType>
   <Association Name="FK_Tbl_Appointments_Tbl_Doctors">
     <End Role="Tbl_Doctors" Type="Self.Tbl_Doctors" Multiplicity="1" />
@@ -49,8 +93,18 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="HospitalProjectModelStoreContainer">
+    <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Announcements" EntityType="Self.Tbl_Announcements" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_Appointments" EntityType="Self.Tbl_Appointments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tbl_Doctors" EntityType="Self.Tbl_Doctors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Patients" EntityType="Self.Tbl_Patients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Secretary" EntityType="Self.Tbl_Secretary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_branch" EntityType="Self.Tbl_branch" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Tbl_branch].[branchid] AS [branchid], 
+    [Tbl_branch].[branchname] AS [branchname]
+    FROM [dbo].[Tbl_branch] AS [Tbl_branch]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_Tbl_Appointments_Tbl_Doctors" Association="Self.FK_Tbl_Appointments_Tbl_Doctors">
       <End Role="Tbl_Doctors" EntitySet="Tbl_Doctors" />
       <End Role="Tbl_Appointments" EntitySet="Tbl_Appointments" />

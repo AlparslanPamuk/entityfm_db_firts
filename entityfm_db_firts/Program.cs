@@ -9,8 +9,18 @@ namespace entityfm_db_firts
 {
     class Program
     {
+        public enum Level : byte
+        {
+            Beginner = 1,
+            Intermediate = 2,
+            Advanced = 3
+        }
         static void Main(string[] args)
         {
+            //var course = new Level();
+            //course.Level1 = CourseLevel.Beginner;
+
+
             HospitalProjectEntities db = new HospitalProjectEntities();
             //var doctors = db.Tbl_Doctors;
             //foreach (var doc in doctors)
@@ -259,12 +269,38 @@ namespace entityfm_db_firts
 
             //------------------------------------------END OF JOİN QUERIES---------------------------------------\\
 
+            //--||--&&--||\\//--||--&&--||\\//--||--&&--||\\//--||--&&--||\\//--||--&&--||\\//--||--&&--||\\//--||--&&--||\\//--||--&&--||\\
+
+            //--Difference between Immediate mode and Defered mode--\\
+
+            //var MustafaAlparslanPamuk = db.Tbl_Doctors.ToList(); ||*Immediate Mode*|| != EagerLoading
+
+            //var MustafaAlparslanPamuk = db.Tbl_Doctors;  ||*Defered Mode*|| != LazyLoading
+
+            //--||--&&--||\\//--||--&&--||\\//--||--&&--||\\//--||--&&--||\\//--||--&&--||\\//--||--&&--||\\//--||--&&--||\\//--||--&&--||\\
 
 
+            //// ----------> LazyLoading
+            //var Alparslan = db.Tbl_Doctors.Find(1);
+            //var pamuk = db.Tbl_Appointments.Where(x => x.appointmentid == Alparslan.docid);
+            //foreach (var product in pamuk)
+            //{
+            //    Console.WriteLine(product.appointmentbranch);
+            //    Console.ReadLine();
+            //}
+
+            //// ----------> EagerLoading
+
+            //var Alparslan = db.Tbl_Doctors.Include("Products").FirstOrDefault(x=> x.docid == 1);
+            //var pamuk = Alparslan.docid;
+            //foreach (var product in pamuk)
+            //{
+            //    Console.WriteLine(product.appointmentbranch);
+            //    Console.ReadLine();
+            //}
 
 
-
-
+        
 
 
 
